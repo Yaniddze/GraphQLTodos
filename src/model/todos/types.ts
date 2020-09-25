@@ -10,6 +10,11 @@ export type FetchingTodos = {
   todos: Todo[];
 }
 
+export type FetchingTodo = {
+  fetching: boolean;
+  todo: Todo;
+}
+
 export interface TodoUnit {
   FetchAll: () => Promise<Todo[]>;
   ById: (id: string) => Promise<Todo>;
