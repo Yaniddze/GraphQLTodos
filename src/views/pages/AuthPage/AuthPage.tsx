@@ -24,8 +24,6 @@ export const AuthPage: FC<PropTypes> = () => {
     error = authState.data.errors[0];
   }
 
-  console.log(authState);
-
   return (
     <Wrapper>
       <AuthForm
