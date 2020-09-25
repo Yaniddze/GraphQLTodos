@@ -16,10 +16,15 @@ export const Todo: FC<PropTypes> = ({
   item,
 }: PropTypes) => (
   <Wrapper>
-    <div className="todo__image">
-      <img src={item.img} alt="todo" />
+    <div>
+      <img
+        width="250px"
+        height="250px"
+        src={item.img}
+        alt="todo"
+      />
     </div>
-    <div className="todo__title">
+    <div>
       {item.title}
     </div>
   </Wrapper>
