@@ -26,7 +26,7 @@ export const useTodos = (): ReturnType => {
       todos: [],
     });
 
-    todoUnit.Fetch()
+    todoUnit.FetchAll()
       .then((res) => {
         setTodosState({
           fetching: false,

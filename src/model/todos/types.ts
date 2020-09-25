@@ -11,5 +11,6 @@ export type FetchingTodos = {
 }
 
 export interface TodoUnit {
-  Fetch: () => Promise<Todo[]>;
+  FetchAll: () => Promise<Todo[]>;
+  ById: (id: string) => Promise<Todo>;
 }
