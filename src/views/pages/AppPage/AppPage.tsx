@@ -10,6 +10,7 @@ import { useTodos } from '../../../hooks/useTodos';
 import { Todo } from '../../components/todo';
 import { SquareButtonWithShadow } from '../../components/buttons';
 import { AuthErrorWrapper } from './AuthErrorWrapper';
+import { FourColorsLoader } from '../../components/loaders';
 
 export const AppPage: FC = () => {
   const { authorized } = useAuthorizedStorage();
@@ -42,11 +43,14 @@ export const AppPage: FC = () => {
       </div>
     ));
 
+  const loader = todosState.fetching && <FourColorsLoader />;
+
   return (
     <div>
       { authError }
+      { loader }
       <div>
-        {todos}
+        { todos }
       </div>
     </div>
   );

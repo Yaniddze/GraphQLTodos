@@ -27,8 +27,8 @@ export const useTodo = (): ReturnType => {
     if (todoState.fetching) return;
 
     setTodoState((old) => ({
-      fetching: true,
       ...old,
+      fetching: true,
     }));
 
     todoUnit.ById(id)

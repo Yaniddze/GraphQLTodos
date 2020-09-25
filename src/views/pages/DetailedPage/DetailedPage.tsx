@@ -8,6 +8,7 @@ import { useAuthorizedStorage } from '../../../hooks/useAuthorizedStorage';
 
 // Components
 import { Wrapper } from './Wrapper';
+import { FourColorsLoader } from '../../components/loaders';
 
 type PropTypes = {
   children?: never;
@@ -45,10 +46,13 @@ export const DetailedPage: FC<PropTypes> = () => {
     </Wrapper>
   );
 
+  const loader = todoState.fetching && <FourColorsLoader />;
+
   return (
     <div>
-      {page}
-      {redirection}
+      { page }
+      { redirection }
+      { loader }
     </div>
   );
 };
