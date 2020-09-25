@@ -1,28 +1,38 @@
+// Core
 import React, { FC, useEffect } from 'react';
-import { gql } from '@apollo/client';
-import { client } from '../../../configuration/GraphQL';
+
+// Hooks
+import { Link } from 'react-router-dom';
+import { useAuthorizedStorage } from '../../../hooks/useAuthorizedStorage';
+import { useTodos } from '../../../hooks/useTodos';
 
 export const AppPage: FC = () => {
+  const { authorized } = useAuthorizedStorage();
+  const { fetchTodos, todosState } = useTodos();
+
   useEffect(() => {
-    client
-      .query({
-        query: gql`
-          query {
-            todo(id:1) {
-              id,
-              title,
-            }
-          }
-        `,
-      })
-      .then((res) => {
-        console.log(res);
-      });
-  }, []);
+    if (authorized) {
+      fetchTodos();
+    }
+  }, [authorized]);
+
+  const authError = !authorized && 'You should been authorized';
+  const todos = !todosState.fetching && todosState.todos
+    .map((todo) => (<div key={todo.id}>{todo.title}</div>));
 
   return (
     <div>
-      123
+      { authError }
+      <div>
+        {todos}
+      </div>
+      <div>
+        <Link to="/auth">
+          <button type="button">
+            Войти
+          </button>
+        </Link>
+      </div>
     </div>
   );
 };
