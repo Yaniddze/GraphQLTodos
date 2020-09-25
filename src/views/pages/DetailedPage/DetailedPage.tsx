@@ -6,6 +6,9 @@ import { useParams, Redirect } from 'react-router-dom';
 import { useTodo } from '../../../hooks/useTodo';
 import { useAuthorizedStorage } from '../../../hooks/useAuthorizedStorage';
 
+// Components
+import { Wrapper } from './Wrapper';
+
 type PropTypes = {
   children?: never;
 }
@@ -23,9 +26,28 @@ export const DetailedPage: FC<PropTypes> = () => {
 
   const redirection = !authorized && <Redirect to="/auth" />;
 
+  const page = !todoState.fetching && (
+    <Wrapper>
+      <div>
+        <img src={todoState.todo.img} alt="todo" />
+      </div>
+      <div>
+        <div>
+          <h2>
+            {todoState.todo.title}
+          </h2>
+        </div>
+        <div>
+          {todoState.todo.description}
+        </div>
+      </div>
+
+    </Wrapper>
+  );
+
   return (
     <div>
-      Detailed
+      {page}
       {redirection}
     </div>
   );

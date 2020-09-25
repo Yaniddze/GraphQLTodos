@@ -16,7 +16,7 @@ type PropTypes = {
 export const Todo: FC<PropTypes> = ({
   item,
 }: PropTypes) => (
-  <Link to={`/detailed/${item.id}`}>
+  <Link style={{ textDecoration: 'none' }} to={`/detailed/${item.id}`}>
     <Wrapper>
 
       <div>
