@@ -2,6 +2,9 @@
 import React, { FC } from 'react';
 import { Redirect } from 'react-router-dom';
 
+// Components
+import { AuthForm } from '../components/forms';
+
 // Hooks
 import { useAuth } from '../../hooks/useAuth';
 
@@ -14,8 +17,18 @@ export const AuthPage: FC<PropTypes> = () => {
 
   const redirection = authState.data.success && <Redirect to="/app" />;
 
+  let error = '';
+
+  if (!authState.fetching && !authState.data.success && authState.data.errors.length > 0) {
+    error = authState.data.errors[0];
+  }
+
   return (
     <div>
+      <AuthForm
+        handleSubmit={tryAuth}
+        error={error}
+      />
       {redirection}
     </div>
   );
