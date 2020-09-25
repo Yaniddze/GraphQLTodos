@@ -1,9 +1,15 @@
 // Core
 import React, { FC } from 'react';
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import {
+  BrowserRouter,
+  Switch,
+  Route,
+  Redirect,
+} from 'react-router-dom';
 
 // Pages
 import { AuthPage } from '../views/pages/AuthPage';
+import { AppPage } from '../views/pages/AppPage';
 
 // Dependencies
 import { AuthDependencies } from '../dependecies/AuthDependencies';
@@ -17,9 +23,7 @@ export const Routes: FC<PropTypes> = () => (
     <Switch>
 
       <Route path="/app">
-        <div>
-          Hello!
-        </div>
+        <AppPage />
       </Route>
 
       <Route path="/auth">
@@ -27,6 +31,8 @@ export const Routes: FC<PropTypes> = () => (
           <AuthPage />
         </AuthDependencies>
       </Route>
+
+      <Redirect to="/app" />
 
     </Switch>
   </BrowserRouter>
