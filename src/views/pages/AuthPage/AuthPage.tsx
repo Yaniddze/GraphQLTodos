@@ -3,10 +3,11 @@ import React, { FC } from 'react';
 import { Redirect } from 'react-router-dom';
 
 // Components
-import { AuthForm } from '../components/forms';
+import { AuthForm } from '../../components/forms';
+import { Wrapper } from './Wrapper';
 
 // Hooks
-import { useAuth } from '../../hooks/useAuth';
+import { useAuth } from '../../../hooks/useAuth';
 
 type PropTypes = {
   children?: never;
@@ -24,12 +25,12 @@ export const AuthPage: FC<PropTypes> = () => {
   }
 
   return (
-    <div>
+    <Wrapper>
       <AuthForm
         handleSubmit={tryAuth}
         error={error}
       />
       {redirection}
-    </div>
+    </Wrapper>
   );
 };
