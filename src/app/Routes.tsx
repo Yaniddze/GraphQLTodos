@@ -24,17 +24,17 @@ export const Routes: FC<PropTypes> = () => (
   <BrowserRouter>
     <Switch>
 
-      <AppDependencies>
-        <>
-          <Route path="/app">
-            <AppPage />
-          </Route>
+      <Route path="/app">
+        <AppDependencies>
+          <AppPage />
+        </AppDependencies>
+      </Route>
 
-          <Route path="/detailed/:id">
-            <DetailedPage />
-          </Route>
-        </>
-      </AppDependencies>
+      <Route path="/detailed/:id">
+        <AppDependencies>
+          <DetailedPage />
+        </AppDependencies>
+      </Route>
 
       <Route path="/auth">
         <AuthDependencies>

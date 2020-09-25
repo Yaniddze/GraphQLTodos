@@ -8,6 +8,8 @@ import { useTodos } from '../../../hooks/useTodos';
 
 // Components
 import { Todo } from '../../components/todo';
+import { SquareButtonWithShadow } from '../../components/buttons';
+import { AuthErrorWrapper } from './AuthErrorWrapper';
 
 export const AppPage: FC = () => {
   const { authorized } = useAuthorizedStorage();
@@ -19,7 +21,20 @@ export const AppPage: FC = () => {
     }
   }, [authorized]);
 
-  const authError = !authorized && 'You should been authorized';
+  const authError = !authorized && (
+    <AuthErrorWrapper>
+      <div>
+        You should been authorized
+      </div>
+      <div>
+        <Link to="/auth">
+          <SquareButtonWithShadow>
+            Войти
+          </SquareButtonWithShadow>
+        </Link>
+      </div>
+    </AuthErrorWrapper>
+  );
   const todos = !todosState.fetching && todosState.todos
     .map((todo) => (
       <div key={todo.id}>
@@ -32,13 +47,6 @@ export const AppPage: FC = () => {
       { authError }
       <div>
         {todos}
-      </div>
-      <div>
-        <Link to="/auth">
-          <button type="button">
-            Войти
-          </button>
-        </Link>
       </div>
     </div>
   );

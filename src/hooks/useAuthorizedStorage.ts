@@ -7,7 +7,7 @@ type StorageType = {
 }
 
 const storage = observable<StorageType>({
-  authorized: true,
+  authorized: false,
 });
 
 type ReturnType = {
