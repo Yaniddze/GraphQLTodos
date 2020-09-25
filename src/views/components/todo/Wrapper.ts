@@ -24,11 +24,7 @@ export const Wrapper = styled.div`
     margin-right: auto; 
   }
   
-  & > div:last-child {
-    margin-top: 10px;
-  }
-  
-  @media(min-width:500px) {
+  @media(min-width:700px) {
     & {
       display: flex;
     }
