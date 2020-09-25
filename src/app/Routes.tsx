@@ -13,6 +13,7 @@ import { AppPage } from '../views/pages/AppPage';
 
 // Dependencies
 import { AuthDependencies } from '../dependecies/AuthDependencies';
+import { AppDependencies } from '../dependecies/AppDependencies';
 
 type PropTypes = {
   children?: never;
@@ -23,7 +24,9 @@ export const Routes: FC<PropTypes> = () => (
     <Switch>
 
       <Route path="/app">
-        <AppPage />
+        <AppDependencies>
+          <AppPage />
+        </AppDependencies>
       </Route>
 
       <Route path="/auth">
