@@ -6,6 +6,9 @@ import { Link } from 'react-router-dom';
 import { useAuthorizedStorage } from '../../../hooks/useAuthorizedStorage';
 import { useTodos } from '../../../hooks/useTodos';
 
+// Components
+import { Todo } from '../../components/todo';
+
 export const AppPage: FC = () => {
   const { authorized } = useAuthorizedStorage();
   const { fetchTodos, todosState } = useTodos();
@@ -17,8 +20,13 @@ export const AppPage: FC = () => {
   }, [authorized]);
 
   const authError = !authorized && 'You should been authorized';
+  console.log(todosState.todos);
   const todos = !todosState.fetching && todosState.todos
-    .map((todo) => (<div key={todo.id}>{todo.title}</div>));
+    .map((todo) => (
+      <div key={todo.id}>
+        <Todo item={todo} />
+      </div>
+    ));
 
   return (
     <div>
