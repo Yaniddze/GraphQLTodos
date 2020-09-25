@@ -2,7 +2,7 @@ import React, { createContext, FC, ReactElement } from 'react';
 import { AuthUnit } from '../model/auth/types';
 import { DefaultAuthUnit, SimpleAuthUnit } from '../model/auth';
 
-const AuthUnitContext = createContext<AuthUnit>(new DefaultAuthUnit());
+export const AuthUnitContext = createContext<AuthUnit>(new DefaultAuthUnit());
 
 type PropTypes = {
   children: ReactElement;
