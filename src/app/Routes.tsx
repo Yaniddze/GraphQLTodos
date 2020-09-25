@@ -10,6 +10,7 @@ import {
 // Pages
 import { AuthPage } from '../views/pages/AuthPage';
 import { AppPage } from '../views/pages/AppPage';
+import { DetailedPage } from '../views/pages/DetailedPage';
 
 // Dependencies
 import { AuthDependencies } from '../dependecies/AuthDependencies';
@@ -23,11 +24,17 @@ export const Routes: FC<PropTypes> = () => (
   <BrowserRouter>
     <Switch>
 
-      <Route path="/app">
-        <AppDependencies>
-          <AppPage />
-        </AppDependencies>
-      </Route>
+      <AppDependencies>
+        <>
+          <Route path="/app">
+            <AppPage />
+          </Route>
+
+          <Route path="/detailed/:id">
+            <DetailedPage />
+          </Route>
+        </>
+      </AppDependencies>
 
       <Route path="/auth">
         <AuthDependencies>

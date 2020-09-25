@@ -1,5 +1,6 @@
 // Core
 import React, { FC } from 'react';
+import { Link } from 'react-router-dom';
 
 // Types
 import { Todo as TodoType } from '../../../model/todos/types';
@@ -15,27 +16,29 @@ type PropTypes = {
 export const Todo: FC<PropTypes> = ({
   item,
 }: PropTypes) => (
-  <Wrapper>
+  <Link to={`/detailed/${item.id}`}>
+    <Wrapper>
 
-    <div>
-      <img
-        width="250px"
-        height="250px"
-        src={item.img}
-        alt="todo"
-      />
-    </div>
-
-    <div>
       <div>
-        <h2>
-          {item.title}
-        </h2>
+        <img
+          width="250px"
+          height="250px"
+          src={item.img}
+          alt="todo"
+        />
       </div>
-      <div>
-        {item.description}
-      </div>
-    </div>
 
-  </Wrapper>
+      <div>
+        <div>
+          <h2>
+            {item.title}
+          </h2>
+        </div>
+        <div>
+          {item.description}
+        </div>
+      </div>
+
+    </Wrapper>
+  </Link>
 );
