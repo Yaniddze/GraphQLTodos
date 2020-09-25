@@ -1,7 +1,7 @@
 export type Todo = {
   id: string;
   title: string;
-  imgUrl: string;
+  img: string;
 }
 
 export type FetchingTodos = {

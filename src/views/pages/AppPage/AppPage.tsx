@@ -20,7 +20,6 @@ export const AppPage: FC = () => {
   }, [authorized]);
 
   const authError = !authorized && 'You should been authorized';
-  console.log(todosState.todos);
   const todos = !todosState.fetching && todosState.todos
     .map((todo) => (
       <div key={todo.id}>

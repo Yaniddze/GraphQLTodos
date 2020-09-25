@@ -17,7 +17,7 @@ export const Todo: FC<PropTypes> = ({
 }: PropTypes) => (
   <Wrapper>
     <div className="todo__image">
-      <img src={item.imgUrl} alt="todo" />
+      <img src={item.img} alt="todo" />
     </div>
     <div className="todo__title">
       {item.title}
