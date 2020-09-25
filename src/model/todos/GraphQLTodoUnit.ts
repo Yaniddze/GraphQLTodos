@@ -42,7 +42,7 @@ export class GraphQLTodoUnit implements TodoUnit {
         .map((todo: TodoFromApi) => ({
           id: todo.id,
           title: todo.title,
-          img: imgs[Math.random() * 3],
+          img: imgs[Math.floor(Math.random() * 3)],
         })))
       .catch(() => [{
         id: 'none',
