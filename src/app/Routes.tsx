@@ -1,7 +1,18 @@
+// Core
 import React, { FC } from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
-export const Routes: FC = () => (
+// Pages
+import { AuthPage } from '../views/pages/AuthPage';
+
+// Dependencies
+import { AuthDependencies } from '../dependecies/AuthDependencies';
+
+type PropTypes = {
+  children?: never;
+}
+
+export const Routes: FC<PropTypes> = () => (
   <BrowserRouter>
     <Switch>
 
@@ -12,9 +23,9 @@ export const Routes: FC = () => (
       </Route>
 
       <Route path="/auth">
-        <div>
-          Auth
-        </div>
+        <AuthDependencies>
+          <AuthPage />
+        </AuthDependencies>
       </Route>
 
     </Switch>
