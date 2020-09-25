@@ -61,14 +61,14 @@ export const AuthForm: FC<PropTypes> = ({
       <InputWithAnimatedSpan
         inputType="text"
         inputName="login"
-        labelText="Login"
+        labelText="Login (root)"
         onChange={handleInputChange}
       />
 
       <InputWithAnimatedSpan
         inputType="password"
         inputName="password"
-        labelText="Password"
+        labelText="Password (123)"
         onChange={handleInputChange}
       />
 
